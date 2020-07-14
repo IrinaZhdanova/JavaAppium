@@ -1,6 +1,7 @@
 package wiki_tests.lib.ui;
 
-import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import wiki_tests.lib.PlatformWiki;
 
 public class SearchWikiPageObject extends MainWikiPageObject {
 
@@ -11,10 +12,12 @@ public class SearchWikiPageObject extends MainWikiPageObject {
             SEARCH_RESULT_TITLE_AND_DESCRIPTION_TPL,
             LIST_SEARCH_RESULT,
             SEARCH_LINE,
-            JAVA_SEARCH_LINE;
+            JAVA_SEARCH_LINE,
+            SEARCH_RESULT_ELEMENT,
+            SEARCH_EMPTY_RESULT_ELEMENT;
 
 
-    public SearchWikiPageObject(AppiumDriver driver) {
+    public SearchWikiPageObject(RemoteWebDriver driver) {
 
         super(driver);
     }
@@ -31,34 +34,45 @@ public class SearchWikiPageObject extends MainWikiPageObject {
     /*TEMPLATES METHODS */
 
     public void initSearchInput() {
-        this.waitForElementAndClick((SEARCH_INIT_ELEMENT),
-                "Cannot find and click init search element",
-                5);
-        this.waitForElementPresent((SEARCH_INIT_ELEMENT),
+        if (PlatformWiki.getInstance().isMw()) {
+            this.waitForElementClickable(SEARCH_INIT_ELEMENT,
+                    "Cannot find and click init search element",
+                    5);
+        }
+
+        this.waitForElementAndClick(SEARCH_INIT_ELEMENT,
+                "Cannot find and click init search element - 2",
+                10);
+        this.waitForElementPresent(SEARCH_INIT_ELEMENT,
                 "Cannot find search input after clicking search init element");
     }
 
-    public void typeSearchLine(String search_line) {
-        this.waitForElementAndSendKeys((SEARCH_INPUT),
-                search_line,
+    public void typeSearchLine(String search_line) throws InterruptedException {
+//        Thread.sleep(2000);
+        this.waitForElementClickable(SEARCH_INPUT,
                 "Cannot find and type into search input",
-                5);
+                10);
+
+        this.waitForElementAndSendKeys(SEARCH_INPUT,
+                search_line,
+                "Cannot find and type into search input - 2",
+                10);
     }
 
     public void getSearchResultList() {
-        this.waitForElementPresent((LIST_SEARCH_RESULT),
+        this.waitForElementPresent(LIST_SEARCH_RESULT,
                 "Search result of 'Python' request is empty",
                 10);
     }
 
     public void getSearchAndClearSearchLine() {
-        waitForElementAndClear((SEARCH_LINE),
+        waitForElementAndClear(SEARCH_LINE,
                 "Cannot find search field",
                 5);
     }
 
     public void waitToDisappearRequestInSearch() {
-        this.waitForElementNotPresent((LIST_SEARCH_RESULT),
+        this.waitForElementNotPresent(LIST_SEARCH_RESULT,
                 "Search request is still present on page",
                 5);
     }
@@ -75,11 +89,21 @@ public class SearchWikiPageObject extends MainWikiPageObject {
                 "Cannot find search result after search request " + title + description);
     }
 
-
     public int getAmountOfFoundArticles() {
-        this.waitForElementPresent((JAVA_SEARCH_LINE),
+        this.waitForElementPresent(JAVA_SEARCH_LINE,
                 "Cannot find anything by request ",
                 15);
-        return this.getAmountOfElements((JAVA_SEARCH_LINE));
+        return this.getAmountOfElements(JAVA_SEARCH_LINE);
+    }
+
+    public void waitForEmptyResultsLabel() {
+        this.waitForElementPresent(SEARCH_EMPTY_RESULT_ELEMENT,
+                "CANNOT FIND EMPTY RESULT ELEMENT",
+                15);
+    }
+
+    public void assertThereIsNoResultOfSearch() {
+        this.assertElementNotPresent(SEARCH_RESULT_ELEMENT,
+                "We supposed not to find any results");
     }
 }

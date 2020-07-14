@@ -1,7 +1,8 @@
 package wiki_tests.lib.ui;
 
-import io.appium.java_client.AppiumDriver;
 import lesson_project.lib.Platform;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import wiki_tests.lib.PlatformWiki;
 
 public class MyWikiListsPageObject extends MainWikiPageObject {
     protected static String
@@ -11,16 +12,17 @@ public class MyWikiListsPageObject extends MainWikiPageObject {
             PYTHON_ARTICLE_IN_FOLDER,
             PYTHON_TITLE_ARTICLE_CARD,
             SYNC_SAVED_ARTICLES_POPUP,
-            CLOSE_BUTTON;
+            CLOSE_BUTTON,
+            REMOVE_FROM_SAVED_BUTTON;
 
 
-    public MyWikiListsPageObject(AppiumDriver driver) {
+    public MyWikiListsPageObject(RemoteWebDriver driver) {
 
         super(driver);
     }
 
     public void getCreatedList() {
-        this.waitForElementAndClick((MY_LIST),
+        this.waitForElementAndClick(MY_LIST,
                 "Cannot find new list",
                 5);
     }
@@ -52,31 +54,37 @@ public class MyWikiListsPageObject extends MainWikiPageObject {
     }
 
 
+    private String getSaveArticleXpathByTitle(String article_title) {
+        return ARTICLE_BY_TITLE_TPL.replace("{TITLE}", article_title);
+    }
+
+
+    public void clickOnPythonArticleInFolder() {
+        this.waitForElementAndClick(PYTHON_ARTICLE_IN_FOLDER,
+                "Cannot find 'Python' article in folder",
+                10);
+    }
+
+    private static String getRemoveButtonByTitle(String article_title) {
+        return REMOVE_FROM_SAVED_BUTTON.replace("{TITLE}", article_title);
+    }
+
     public void swipeByArticleToDelete(String article_title) {
-        if(Platform.getInstance().isAndroid()) {
+        if (PlatformWiki.getInstance().isAndroid()) {
             this.waitForArticleToAppearByTitle(article_title);
         }
 
         String article_xpath = getSaveArticleXpathByTitle(article_title);
-        this.swipeElementToLeft((article_xpath),
-                "Cannot find saved article");
 
-        if(Platform.getInstance().isIOS()){
-            this.clickElementToTheRightUpperCorner(
-                    article_xpath,
-                    "Cannot find saved article - 2");
+        if (Platform.getInstance().isIOS() || Platform.getInstance().isAndroid()) {
+            this.swipeElementToLeft((article_xpath),
+                    "Cannot find saved article");
+        } else {
+            String remove_locator = getRemoveButtonByTitle(article_title);
+            this.waitForElementAndClick(remove_locator,
+                    "Cannot click button to remove article from saved",
+                    10);
         }
-        this.waitForArticleToDisappearByTitle(article_title);
-    }
-
-    private static String getSaveArticleXpathByTitle(String article_title) {
-        return ARTICLE_BY_TITLE_TPL.replace("{TITLE}", article_title);
-    }
-
-    public void clickOnPythonArticleInFolder() {
-        this.waitForElementAndClick((PYTHON_ARTICLE_IN_FOLDER),
-                "Cannot find 'Python' article in folder",
-                10);
     }
 
     public void closeSyncSavedArticlesPopup() {

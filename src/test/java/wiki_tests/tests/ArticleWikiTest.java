@@ -9,7 +9,7 @@ import wiki_tests.lib.ui.factories.SearchWikiPageObjectFactory;
 
 public class ArticleWikiTest extends CoreWikiTestCase {
     @Test
-    public void testFindGolangArticleAndCheckTitle() {
+    public void testFindGolangArticleAndCheckTitle() throws InterruptedException {
 
         SearchWikiPageObject SearchWikiPageObject = SearchWikiPageObjectFactory.get(driver);
         SearchWikiPageObject.initSearchInput();

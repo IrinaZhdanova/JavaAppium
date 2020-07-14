@@ -1,15 +1,17 @@
-package lesson_project.lib.ui;
+package wiki_tests.lib.ui;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
+import wiki_tests.lib.PlatformWiki;
 
-public class AuthorizationPageObject extends MainPageObject {
+public class AuthorizationWikiPageObject extends MainWikiPageObject{
     private static final String
             LOGIN_BUTTON = "xpath://body/div//a[text()='Log in']",
-            LOGIN_INPUT = "css:input[name=wpName]",
+            LOGIN_INPUT = "css:.mw-input #wpName1",
+//                    "input[name=wpName]",
             PASSWORD_BUTTON = "css:input[name=wpPassword]",
             SUBMIT_BUTTON = "css:button[name=wploginattempt]";
 
-    public AuthorizationPageObject(RemoteWebDriver driver) {
+    public AuthorizationWikiPageObject(RemoteWebDriver driver) {
         super(driver);
     }
 
@@ -22,7 +24,8 @@ public class AuthorizationPageObject extends MainPageObject {
                 5);
     }
 
-    public void enterLoginData(String login, String password) {
+    public void enterLoginData(String login, String password) throws InterruptedException {
+//        Thread.sleep(1000);
         this.waitForElementAndSendKeys(LOGIN_INPUT, login,
                 "Cannot find and enter a login to the login input",
                 5);
@@ -36,5 +39,4 @@ public class AuthorizationPageObject extends MainPageObject {
                 "Cannot find and click submit auth button",
                 5);
     }
-
 }

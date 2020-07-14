@@ -31,7 +31,7 @@ public class SearchWikiTest extends CoreWikiTestCase {
     }
 
     @Test
-    public void testPerformSearchAndRemoveSymbolsAfterSearch() {
+    public void testPerformSearchAndRemoveSymbolsAfterSearch() throws InterruptedException {
 
         SearchWikiPageObject SearchWikiPageObject = SearchWikiPageObjectFactory.get(driver);
         SearchWikiPageObject.initSearchInput();
@@ -42,7 +42,7 @@ public class SearchWikiTest extends CoreWikiTestCase {
     }
 
     @Test
-    public void testCheckJavaSearchResults() {
+    public void testCheckJavaSearchResults() throws InterruptedException {
 
         SearchWikiPageObject SearchWikiPageObject = SearchWikiPageObjectFactory.get(driver);
         SearchWikiPageObject.initSearchInput();
@@ -53,7 +53,7 @@ public class SearchWikiTest extends CoreWikiTestCase {
     }
 
     @Test
-    public void testCheckJavaSearchResultsTest() {
+    public void testCheckJavaSearchResultsTest() throws InterruptedException {
 
         SearchWikiPageObject SearchWikiPageObject = SearchWikiPageObjectFactory.get(driver);
         SearchWikiPageObject.initSearchInput();

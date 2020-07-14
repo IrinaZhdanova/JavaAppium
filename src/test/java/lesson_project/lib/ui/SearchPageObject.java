@@ -79,13 +79,13 @@ abstract public class SearchPageObject extends MainPageObject {
     }
 
     public void waitForEmptyResultsLabel() {
-        this.waitForElementPresent((SEARCH_EMPTY_RESULT_ELEMENT),
+        this.waitForElementPresent(SEARCH_EMPTY_RESULT_ELEMENT,
                 "CANNOT FIND EMPTY RESULT ELEMENT",
                  15);
     }
 
     public void assertThereIsNoResultOfSearch() {
-        this.assertElementNotPresent((SEARCH_RESULT_ELEMENT),
+        this.assertElementNotPresent(SEARCH_RESULT_ELEMENT,
                 "We supposed not to find any results");
     }
 

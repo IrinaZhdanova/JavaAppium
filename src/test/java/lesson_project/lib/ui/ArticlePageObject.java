@@ -1,6 +1,5 @@
 package lesson_project.lib.ui;
 
-import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import lesson_project.lib.Platform;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -96,13 +95,16 @@ abstract public class ArticlePageObject extends MainPageObject {
         }
     }
 
-    public void addArticlesToMySaved() throws InterruptedException {
+    public void addArticlesToMySaved() {
 
         if (Platform.getInstance().isMw()) {
             this.removeArticleFromSavedIfItAdded();
         }
 
-        Thread.sleep(7000);
+        this.waitForElementClickable(OPTIONS_ADD_TO_MY_LIST_BUTTON,
+                "Cannot find option to add article to reading list",
+                5);
+
         this.waitForElementAndClick(OPTIONS_ADD_TO_MY_LIST_BUTTON,
                 "Cannot find option to add article to reading list",
                 5);

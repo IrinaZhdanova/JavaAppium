@@ -1,19 +1,22 @@
 package wiki_tests.lib.ui.factories;
 
-import io.appium.java_client.AppiumDriver;
-import lesson_project.lib.Platform;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import wiki_tests.lib.PlatformWiki;
 import wiki_tests.lib.ui.SearchWikiPageObject;
 import wiki_tests.lib.ui.android.AndroidWikiSearchPageObject;
 import wiki_tests.lib.ui.ios.IOSWikiSearchPageObject;
+import wiki_tests.lib.ui.mobile_web.MWWikiSearchPageObject;
 
 public class SearchWikiPageObjectFactory {
 
-    public static SearchWikiPageObject get(AppiumDriver driver) {
+    public static SearchWikiPageObject get(RemoteWebDriver driver) {
 
-        if (Platform.getInstance().isAndroid()) {
+        if (PlatformWiki.getInstance().isAndroid()) {
             return new AndroidWikiSearchPageObject(driver);
-        } else {
+        } else if (PlatformWiki.getInstance().isIOS()) {
             return new IOSWikiSearchPageObject(driver);
+        } else {
+            return new MWWikiSearchPageObject(driver);
         }
     }
 }

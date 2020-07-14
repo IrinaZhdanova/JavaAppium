@@ -1,6 +1,6 @@
 package wiki_tests.lib.ui.ios;
 
-import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import wiki_tests.lib.ui.SearchWikiPageObject;
 
 public class IOSWikiSearchPageObject extends SearchWikiPageObject {
@@ -12,9 +12,11 @@ public class IOSWikiSearchPageObject extends SearchWikiPageObject {
         LIST_SEARCH_RESULT_SUBSTRING_TPL = "xpath://XCUIElementTypeStaticText[contains(@name,'{SUBSTRING}')]";
         LIST_SEARCH_RESULT = "xpath://XCUIElementTypeCollectionView";
         JAVA_SEARCH_LINE = "xpath://XCUIElementTypeStaticText[contains(@name, Java)]";
+        SEARCH_RESULT_ELEMENT = "xpath:/XCUIElementTypeCollectionView";
+        SEARCH_EMPTY_RESULT_ELEMENT = "xpath://XCUIElementTypeStaticText[@name=No results found]";
     }
 
-    public IOSWikiSearchPageObject(AppiumDriver driver){
+    public IOSWikiSearchPageObject(RemoteWebDriver driver){
 
         super(driver);
     }

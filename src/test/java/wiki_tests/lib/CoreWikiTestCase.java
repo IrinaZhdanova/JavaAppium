@@ -2,11 +2,9 @@ package wiki_tests.lib;
 
 import io.appium.java_client.AppiumDriver;
 import junit.framework.TestCase;
-import lesson_project.lib.Platform;
 import lesson_project.lib.ui.WelcomePageObject;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import wiki_tests.lib.ui.WelcomeWikiPageObject;
 
 import java.time.Duration;
 
@@ -20,15 +18,14 @@ public class CoreWikiTestCase extends TestCase {
     protected void setUp() throws Exception {
 
         super.setUp();
-        driver = Platform.getInstance().getDriver();
+        driver = PlatformWiki.getInstance().getDriver();
         this.rotateScreenPortrait();
         this.skipWelcomePageForIOSApp();
         this.openWikiWebPageForMobileWeb();
     }
 
-
     @Override
-    public void tearDown() throws Exception {
+    protected void tearDown() throws Exception {
 
         driver.quit();
         super.tearDown();
@@ -41,7 +38,7 @@ public class CoreWikiTestCase extends TestCase {
             driver.rotate(ScreenOrientation.PORTRAIT);
         } else {
             System.out.println("Method rotateScreenPortrait() does nothing for platform "
-                    + Platform.getInstance().getPlatformVar());
+                    + PlatformWiki.getInstance().getPlatformVar());
         }
     }
 
@@ -52,7 +49,7 @@ public class CoreWikiTestCase extends TestCase {
             driver.rotate(ScreenOrientation.LANDSCAPE);
         } else {
             System.out.println("Method rotateScreenLandscape() does nothing for platform "
-                    + Platform.getInstance().getPlatformVar());
+                    + PlatformWiki.getInstance().getPlatformVar());
         }
     }
 
@@ -63,24 +60,24 @@ public class CoreWikiTestCase extends TestCase {
             driver.runAppInBackground(Duration.ofSeconds(seconds));
         } else {
             System.out.println("Method backgroundApp() does nothing for platform "
-                    + Platform.getInstance().getPlatformVar());
+                    + PlatformWiki.getInstance().getPlatformVar());
         }
     }
 
     protected void openWikiWebPageForMobileWeb() {
 
-        if (Platform.getInstance().isMw()) {
+        if (PlatformWiki.getInstance().isMw()) {
             driver.get("https://en.m.wikipedia.org");
             driver.manage().deleteAllCookies();
         } else {
             System.out.println("Method openWikiWebPageForMobileWeb() does nothing for platform "
-                    + Platform.getInstance().getPlatformVar());
+                    + PlatformWiki.getInstance().getPlatformVar());
         }
     }
 
     private void skipWelcomePageForIOSApp() {
 
-        if(Platform.getInstance().isIOS()) {
+        if(PlatformWiki.getInstance().isIOS()) {
             AppiumDriver driver = (AppiumDriver)this.driver;
             WelcomePageObject WelcomePageObject = new WelcomePageObject(driver);
             WelcomePageObject.clickSkip();

@@ -1,6 +1,6 @@
 package wiki_tests.lib.ui.android;
 
-import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import wiki_tests.lib.ui.ArticleWikiPageObject;
 
 public class AndroidWikiArticlePageObject extends ArticleWikiPageObject {
@@ -22,7 +22,7 @@ public class AndroidWikiArticlePageObject extends ArticleWikiPageObject {
         CLOSE_ARTICLE_BUTTON = "xpath://android.widget.ImageButton[@content-desc='Navigate up']";
     }
 
-    public AndroidWikiArticlePageObject(AppiumDriver driver){
+    public AndroidWikiArticlePageObject(RemoteWebDriver driver){
 
         super(driver);
     }

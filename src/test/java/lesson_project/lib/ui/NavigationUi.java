@@ -18,10 +18,12 @@ abstract public class NavigationUi extends MainPageObject{
     public void openNavigation() throws InterruptedException {
 
         if (Platform.getInstance().isMw()) {
-            Thread.sleep(7000);
-            this.waitForElementAndClick(OPEN_NAVIGATION,
+            this.waitForElementClickable(OPEN_NAVIGATION,
                     "Cannot find and click open navigation button",
-                    5);
+                    10);
+            this.waitForElementAndClick(OPEN_NAVIGATION,
+                    "Cannot find and click open navigation button - 2",
+                    10);
         } else {
             System.out.println("Method openNavigation() does nothing for platform "
                     + Platform.getInstance().getPlatformVar());

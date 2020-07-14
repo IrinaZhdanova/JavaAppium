@@ -1,6 +1,5 @@
 package lesson_project.lib.ui.factories;
 
-import io.appium.java_client.AppiumDriver;
 import lesson_project.lib.Platform;
 import lesson_project.lib.ui.NavigationUi;
 import lesson_project.lib.ui.android.AndroidNavigationUI;

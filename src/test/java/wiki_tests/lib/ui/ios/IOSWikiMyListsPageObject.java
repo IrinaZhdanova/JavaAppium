@@ -1,6 +1,6 @@
 package wiki_tests.lib.ui.ios;
 
-import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import wiki_tests.lib.ui.MyWikiListsPageObject;
 
 public class IOSWikiMyListsPageObject extends MyWikiListsPageObject {
@@ -12,7 +12,7 @@ public class IOSWikiMyListsPageObject extends MyWikiListsPageObject {
         CLOSE_BUTTON = "id:Close";
     }
 
-    public IOSWikiMyListsPageObject(AppiumDriver driver) {
+    public IOSWikiMyListsPageObject(RemoteWebDriver driver) {
 
         super(driver);
     }

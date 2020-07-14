@@ -36,6 +36,13 @@ public class MainPageObject {
         return wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public WebElement waitForElementClickable(String locator, String error_message, long timeoutInSeconds) {
+        By by = this.getLocatorByString(locator);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+        wait.withMessage(error_message + "\n");
+        return wait.until(ExpectedConditions.elementToBeClickable(by));
+    }
+
     public WebElement waitForElementPresent(String locator, String error_message) {
         return this.waitForElementPresent(locator, error_message, 10);
     }
@@ -121,7 +128,7 @@ public class MainPageObject {
         while (driver.findElements(by).size() == 0) {
 
             if (already_swiped > max_swipes) {
-                waitForElementPresent(locator, "Cannot find element by swiping up. \n" + error_message,
+                waitForElementPresent(locator, "Cannot find element by swiping up. " + error_message,
                         0);
                 return;
             }

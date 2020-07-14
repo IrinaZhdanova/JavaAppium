@@ -1,6 +1,6 @@
 package wiki_tests.lib.ui.android;
 
-import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import wiki_tests.lib.ui.MyWikiListsPageObject;
 
 public class AndroidWikiMyListsPageObject extends MyWikiListsPageObject {
@@ -14,7 +14,7 @@ public class AndroidWikiMyListsPageObject extends MyWikiListsPageObject {
     }
 
 
-    public AndroidWikiMyListsPageObject(AppiumDriver driver) {
+    public AndroidWikiMyListsPageObject(RemoteWebDriver driver) {
         super(driver);
     }
 }

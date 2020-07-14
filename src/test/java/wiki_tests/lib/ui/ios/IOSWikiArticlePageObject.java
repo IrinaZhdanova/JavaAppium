@@ -1,6 +1,6 @@
 package wiki_tests.lib.ui.ios;
 
-import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import wiki_tests.lib.ui.ArticleWikiPageObject;
 
 public class IOSWikiArticlePageObject extends ArticleWikiPageObject {
@@ -16,7 +16,7 @@ public class IOSWikiArticlePageObject extends ArticleWikiPageObject {
         CANCEL_BUTTON = "id:Cancel";
     }
 
-    public IOSWikiArticlePageObject(AppiumDriver driver) {
+    public IOSWikiArticlePageObject(RemoteWebDriver driver) {
         super(driver);
     }
 }

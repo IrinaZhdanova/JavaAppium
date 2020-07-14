@@ -1,6 +1,6 @@
 package wiki_tests.lib.ui.android;
 
-import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import wiki_tests.lib.ui.SearchWikiPageObject;
 
 public class AndroidWikiSearchPageObject extends SearchWikiPageObject {
@@ -15,9 +15,11 @@ public class AndroidWikiSearchPageObject extends SearchWikiPageObject {
         LIST_SEARCH_RESULT = "id:org.wikipedia:id/page_list_item_container";
         SEARCH_LINE = "id:org.wikipedia:id/search_src_text";
         JAVA_SEARCH_LINE = "xpath://*[@resource-id='org.wikipedia:id/page_list_item_container']//*[contains(@text,'Java')]";
+        SEARCH_RESULT_ELEMENT = "xpath://*[@resource-id='org.wikipedia:id/search_results_list']/*[@resource-id='org.wikipedia:id/page_list_item_container']";
+        SEARCH_EMPTY_RESULT_ELEMENT = "xpath://*[@text='No results found']";
     }
 
-    public AndroidWikiSearchPageObject(AppiumDriver driver){
+    public AndroidWikiSearchPageObject(RemoteWebDriver driver){
         super(driver);
     }
 }

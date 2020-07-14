@@ -1,6 +1,6 @@
 package wiki_tests.lib.ui.ios;
 
-import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import wiki_tests.lib.ui.NavigationUIWikiPageObject;
 
 public class IOSWikiNavigationUIPageObject extends NavigationUIWikiPageObject {
@@ -9,7 +9,7 @@ public class IOSWikiNavigationUIPageObject extends NavigationUIWikiPageObject {
         MY_LISTS_LINK = "id:Saved";
     }
 
-    public IOSWikiNavigationUIPageObject(AppiumDriver driver) {
+    public IOSWikiNavigationUIPageObject(RemoteWebDriver driver) {
         super(driver);
     }
 }

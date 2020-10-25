@@ -13,6 +13,9 @@ public class MWWikiArticlePageObject extends ArticleWikiPageObject {
         GOLANG_ARTICLE_DESCRIPTION = "css:li[title='Go (programming language)']";
         OPTIONS_ADD_TO_MY_LIST_BUTTON = "css:#page-actions-watch #ca-watch[role='button']";
         OPTIONS_REMOVE_FROM_MY_LIST_BUTTON = "css:.mw-ui-icon-wikimedia-unStar-progressive.watched";
+        GOLANG_ARTICLE_TITLE = "id:section_0";
+        TITLE_GOLANG = "id:section_0";
+        SEARCH_TITLE = "css:[aria-label='Search Wikipedia']";
     }
 
     public MWWikiArticlePageObject(RemoteWebDriver driver) {

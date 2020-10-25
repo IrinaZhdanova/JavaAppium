@@ -1,9 +1,8 @@
 package lesson_project.lib.ui;
 
-import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class WelcomePageObject extends MainPageObject{
+public class WelcomePageObject extends MainPageObject {
 
     private static final String
             STEP_LEARN_MORE_LINK = "name:Learn more about Wikipedia",

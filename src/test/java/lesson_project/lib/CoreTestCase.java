@@ -34,19 +34,19 @@ public class CoreTestCase extends TestCase {
 
     protected void rotateScreenPortrait() {
 
-        if(driver instanceof AppiumDriver) {
-            AppiumDriver driver = (AppiumDriver)this.driver;
+        if (driver instanceof AppiumDriver) {
+            AppiumDriver driver = (AppiumDriver) this.driver;
             driver.rotate(ScreenOrientation.PORTRAIT);
         } else {
             System.out.println("Method rotateScreenPortrait() does nothing for platform "
-            + Platform.getInstance().getPlatformVar());
+                    + Platform.getInstance().getPlatformVar());
         }
     }
 
     protected void rotateScreenLandscape() {
 
-        if(driver instanceof AppiumDriver) {
-            AppiumDriver driver = (AppiumDriver)this.driver;
+        if (driver instanceof AppiumDriver) {
+            AppiumDriver driver = (AppiumDriver) this.driver;
             driver.rotate(ScreenOrientation.LANDSCAPE);
         } else {
             System.out.println("Method rotateScreenLandscape() does nothing for platform "
@@ -56,8 +56,8 @@ public class CoreTestCase extends TestCase {
 
     protected void backgroundApp(int seconds) {
 
-        if(driver instanceof AppiumDriver) {
-            AppiumDriver driver = (AppiumDriver)this.driver;
+        if (driver instanceof AppiumDriver) {
+            AppiumDriver driver = (AppiumDriver) this.driver;
             driver.runAppInBackground(Duration.ofSeconds(seconds));
         } else {
             System.out.println("Method backgroundApp() does nothing for platform "
@@ -78,8 +78,8 @@ public class CoreTestCase extends TestCase {
 
     private void skipWelcomePageForIOSApp() {
 
-        if(Platform.getInstance().isIOS()) {
-            AppiumDriver driver = (AppiumDriver)this.driver;
+        if (Platform.getInstance().isIOS()) {
+            AppiumDriver driver = (AppiumDriver) this.driver;
             WelcomePageObject WelcomePageObject = new WelcomePageObject(driver);
             WelcomePageObject.clickSkip();
         }

@@ -74,7 +74,7 @@ public class MyWikiListsPageObject extends MainWikiPageObject {
             this.waitForArticleToAppearByTitle(article_title);
         }
 
-        String article_xpath = getSaveArticleXpathByTitle(article_title);
+        String article_xpath = this.getSaveArticleXpathByTitle(article_title);
 
         if (Platform.getInstance().isIOS() || Platform.getInstance().isAndroid()) {
             this.swipeElementToLeft((article_xpath),

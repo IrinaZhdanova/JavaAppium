@@ -1,6 +1,5 @@
 package lesson_project.lib.ui;
 
-import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 abstract public class SearchPageObject extends MainPageObject {
@@ -81,7 +80,7 @@ abstract public class SearchPageObject extends MainPageObject {
     public void waitForEmptyResultsLabel() {
         this.waitForElementPresent(SEARCH_EMPTY_RESULT_ELEMENT,
                 "CANNOT FIND EMPTY RESULT ELEMENT",
-                 15);
+                15);
     }
 
     public void assertThereIsNoResultOfSearch() {

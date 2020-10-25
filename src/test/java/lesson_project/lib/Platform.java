@@ -29,7 +29,7 @@ public class Platform {
 
     public RemoteWebDriver getDriver() throws Exception {
         URL URL = new URL(APPIUM_URL);
-        if(this.isAndroid()){
+        if (this.isAndroid()) {
             return new AndroidDriver(URL, this.getAndroidDesiredCapabilities());
         } else if (this.isIOS()) {
             return new IOSDriver(URL, this.getIOSDesiredCapabilities());
@@ -61,7 +61,7 @@ public class Platform {
         capabilities.setCapability("automationName", "Appium");
         capabilities.setCapability("appPackage", "org.wikipedia");
         capabilities.setCapability("appActivity", ".main.MainActivity");
-        capabilities.setCapability("app", "/Users/irinazdanova/Desktop/JavaAppiumAutomation/apks/org.wikipedia.apk");
+        capabilities.setCapability("app", "/Users/irinazdanova/Desktop/JavaAppium/apks/org.wikipedia.apk");
         return capabilities;
     }
 
@@ -71,7 +71,7 @@ public class Platform {
         capabilities.setCapability("platformName", "iOS");
         capabilities.setCapability("deviceName", "iPhone SE (2nd generation)");
         capabilities.setCapability("platformVersion", "13.5");
-        capabilities.setCapability("app", "/Users/irinazdanova/Desktop/JavaAppiumAutomation/apks/Wikipedia.app");
+        capabilities.setCapability("app", "/Users/irinazdanova/Desktop/JavaAppium/apks/Wikipedia.app");
         return capabilities;
     }
 
@@ -90,7 +90,7 @@ public class Platform {
         return chromeOptions;
     }
 
-    private boolean isPlatform (String my_platform) {
+    private boolean isPlatform(String my_platform) {
         String platform = this.getPlatformVar();
         return my_platform.equals(platform);
     }

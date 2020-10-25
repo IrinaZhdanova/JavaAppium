@@ -10,7 +10,8 @@ public class AndroidWikiSearchPageObject extends SearchWikiPageObject {
         SEARCH_INPUT = "xpath://*[contains(@text, 'Search…')]";
         LIST_SEARCH_RESULT_SUBSTRING_TPL = "xpath://*[@resource-id='org.wikipedia:id/page_list_item_container']" +
                 "//*[@text='{SUBSTRING}']";
-        SEARCH_RESULT_TITLE_AND_DESCRIPTION_TPL = "xpath://*[@class='android.widget.TextView']" +
+        //*[@resource-id='org.wikipedia:id/page_list_item_title' or contains(@resource-id,'org.wikipedia:id/page_list_item_description')]
+        SEARCH_RESULT_TITLE_AND_DESCRIPTION_TPL = "xpath://*[@resource-id='org.wikipedia:id/page_list_item_title' or contains(@resource-id,'org.wikipedia:id/page_list_item_description')]" +
                 "//*[@text='{TITLE}']";
         LIST_SEARCH_RESULT = "id:org.wikipedia:id/page_list_item_container";
         SEARCH_LINE = "id:org.wikipedia:id/search_src_text";
@@ -19,7 +20,8 @@ public class AndroidWikiSearchPageObject extends SearchWikiPageObject {
         SEARCH_EMPTY_RESULT_ELEMENT = "xpath://*[@text='No results found']";
     }
 
-    public AndroidWikiSearchPageObject(RemoteWebDriver driver){
+    public AndroidWikiSearchPageObject(RemoteWebDriver driver) {
         super(driver);
     }
 }
+

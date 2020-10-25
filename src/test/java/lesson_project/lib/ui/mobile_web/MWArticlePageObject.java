@@ -9,7 +9,6 @@ public class MWArticlePageObject extends ArticlePageObject {
         TITLE = "css:#content h1";
         FOOTER_ELEMENT = "css:footer";
         OPTIONS_ADD_TO_MY_LIST_BUTTON = "css:#page-actions-watch #ca-watch[role='button']";
-//                "#page-actions li#ca-watch button";
         OPTIONS_REMOVE_FROM_MY_LIST_BUTTON = "css:.mw-ui-icon-wikimedia-unStar-progressive.watched";
     }
 

@@ -42,7 +42,7 @@ public class MainWikiPageObject {
     }
 
     public WebElement waitForElementPresent(String locator, String error_message) {
-        return this.waitForElementPresent(locator, error_message, 5);
+        return this.waitForElementPresent(locator, error_message, 10);
     }
 
     public WebElement waitForElementAndClick(String locator, String error_message, long timeoutInSeconds) {

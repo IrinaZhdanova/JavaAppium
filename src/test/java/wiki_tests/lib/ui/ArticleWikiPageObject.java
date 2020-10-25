@@ -47,7 +47,7 @@ public class ArticleWikiPageObject extends MainWikiPageObject {
 
     public String getArticleTitle() {
         WebElement title_element = waitForTitleGolangElement();
-        if(PlatformWiki.getInstance().isAndroid()) {
+        if (PlatformWiki.getInstance().isAndroid() || PlatformWiki.getInstance().isMw()) {
             return title_element.getAttribute("text");
         } else {
             return title_element.getAttribute("name");
@@ -55,11 +55,11 @@ public class ArticleWikiPageObject extends MainWikiPageObject {
     }
 
     public String waitForSearchTitleElement() {
-        if(PlatformWiki.getInstance().isAndroid()) {
+        if (PlatformWiki.getInstance().isAndroid()) {
             return this.waitForElementPresent(SEARCH_TITLE,
                     "Cannot find 'search' article title on page",
                     15).getAttribute("text");
-        } else{
+        } else {
             return this.waitForElementPresent(SEARCH_TITLE,
                     "Cannot find 'search' article title on page",
                     15).getAttribute("name");
@@ -77,12 +77,12 @@ public class ArticleWikiPageObject extends MainWikiPageObject {
     }
 
     public void getArticleCard() {
-        if(PlatformWiki.getInstance().isAndroid()) {
+        if (PlatformWiki.getInstance().isAndroid()) {
             this.waitForElementPresent(
                     TITLE,
                     "Cannot find article card",
                     15);
-        } else if(PlatformWiki.getInstance().isIOS()){
+        } else if (PlatformWiki.getInstance().isIOS()) {
             this.waitForElementPresent(TITLE_PYTHON,
                     "Cannot find article card",
                     15);
@@ -125,7 +125,7 @@ public class ArticleWikiPageObject extends MainWikiPageObject {
     }
 
     public void closeArticle() {
-        if (PlatformWiki.getInstance().isAndroid() || PlatformWiki.getInstance().isIOS()){
+        if (PlatformWiki.getInstance().isAndroid() || PlatformWiki.getInstance().isIOS()) {
             this.waitForElementAndClick(CLOSE_ARTICLE_BUTTON,
                     "Cannot close article, cannot close X link",
                     5);
@@ -143,7 +143,7 @@ public class ArticleWikiPageObject extends MainWikiPageObject {
 
     public void openGolangArticle() {
         String search_line = "Golang";
-        assertElementPresent(GOLANG_ARTICLE_TITLE,
+        this.waitForElementPresent(GOLANG_ARTICLE_TITLE,
                 "We've not found title article result by request " + search_line);
     }
 
@@ -175,10 +175,9 @@ public class ArticleWikiPageObject extends MainWikiPageObject {
     }
 
     public void addArticlesToMySaved() throws InterruptedException {
-//        Thread.sleep(5000);
         if (PlatformWiki.getInstance().isMw()) {
             this.removeArticleFromSavedIfItAdded();
-
+            Thread.sleep(5000);
             this.waitForElementClickable(ADD_TO_LIST_BUTTON,
                     "Cannot find option to add article to reading list",
                     15);
@@ -190,7 +189,7 @@ public class ArticleWikiPageObject extends MainWikiPageObject {
 
     public void removeArticleFromSavedIfItAdded() {
 
-        if(this.isElementPresent(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON)) {
+        if (this.isElementPresent(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON)) {
             this.waitForElementAndClick(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON,
                     "Cannot click button to remove an article from saved",
                     1);

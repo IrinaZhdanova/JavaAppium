@@ -48,8 +48,8 @@ public class SearchWikiPageObject extends MainWikiPageObject {
     }
 
     public void typeSearchLine(String search_line) throws InterruptedException {
-//        Thread.sleep(2000);
-        this.waitForElementClickable(SEARCH_INPUT,
+//        Thread.sleep(4000);
+        this.waitForElementAndClick(SEARCH_INPUT,
                 "Cannot find and type into search input",
                 10);
 
@@ -66,19 +66,26 @@ public class SearchWikiPageObject extends MainWikiPageObject {
     }
 
     public void getSearchAndClearSearchLine() {
-        waitForElementAndClear(SEARCH_LINE,
+        this.waitForElementAndClear(SEARCH_LINE,
                 "Cannot find search field",
                 5);
     }
 
     public void waitToDisappearRequestInSearch() {
-        this.waitForElementNotPresent(LIST_SEARCH_RESULT,
-                "Search request is still present on page",
-                5);
+        if (PlatformWiki.getInstance().isMw()) {
+            this.waitForElementPresent(LIST_SEARCH_RESULT,
+                    "Search request is still present on page",
+                    5);
+        } else {
+            this.waitForElementNotPresent(LIST_SEARCH_RESULT,
+                    "Search request is still present on page - 2",
+                    5);
+        }
     }
 
-    public void waitForSearchResult(String substring) {
+    public void waitForSearchResult(String substring) throws InterruptedException {
         String search_result_xpath = getResultSearchElement(substring);
+        Thread.sleep(2000);
         this.waitForElementPresent(search_result_xpath,
                 "Cannot find search result with substring " + substring);
     }

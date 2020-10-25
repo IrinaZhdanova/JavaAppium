@@ -14,7 +14,7 @@ public class MWSearchPageObject extends SearchPageObject {
         SEARCH_EMPTY_RESULT_ELEMENT = "css:p.without-results";
     }
 
-    public MWSearchPageObject(RemoteWebDriver driver){
+    public MWSearchPageObject(RemoteWebDriver driver) {
 
         super(driver);
     }

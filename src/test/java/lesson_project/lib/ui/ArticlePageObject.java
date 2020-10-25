@@ -32,9 +32,9 @@ abstract public class ArticlePageObject extends MainPageObject {
 
     public String getArticleTitle() {
         WebElement title_element = waitForTitleElement();
-        if(Platform.getInstance().isAndroid()) {
+        if (Platform.getInstance().isAndroid()) {
             return title_element.getAttribute("text");
-        } else if(Platform.getInstance().isIOS()){
+        } else if (Platform.getInstance().isIOS()) {
             return title_element.getAttribute("name");
         } else {
             return title_element.getText();
@@ -42,11 +42,11 @@ abstract public class ArticlePageObject extends MainPageObject {
     }
 
     public void swipeToFooter() {
-        if(Platform.getInstance().isAndroid()) {
+        if (Platform.getInstance().isAndroid()) {
             this.swipeUpToFindElement(FOOTER_ELEMENT,
                     "Cannot find the end of article",
                     40);
-        } else if(Platform.getInstance().isIOS()){
+        } else if (Platform.getInstance().isIOS()) {
             this.swipeTillElementAppear(FOOTER_ELEMENT,
                     "Cannot find the end of article - 2",
                     40);
@@ -85,7 +85,7 @@ abstract public class ArticlePageObject extends MainPageObject {
     }
 
     public void closeArticle() {
-        if (Platform.getInstance().isAndroid() || Platform.getInstance().isIOS()){
+        if (Platform.getInstance().isAndroid() || Platform.getInstance().isIOS()) {
             this.waitForElementAndClick(CLOSE_ARTICLE_BUTTON,
                     "Cannot close article, cannot close X link",
                     5);
@@ -112,7 +112,7 @@ abstract public class ArticlePageObject extends MainPageObject {
 
     public void removeArticleFromSavedIfItAdded() {
 
-        if(this.isElementPresent(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON)) {
+        if (this.isElementPresent(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON)) {
             this.waitForElementAndClick(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON,
                     "Cannot click button to remove an article from saved",
                     1);

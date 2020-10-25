@@ -10,6 +10,7 @@ public class IOSWikiArticlePageObject extends ArticleWikiPageObject {
         TITLE_GOLANG = "id:Go (programming language)";
         PYTHON_ARTICLE_DESCRIPTION = "id:General-purpose, high-level programming language";
         GOLANG_ARTICLE_DESCRIPTION = "id:Go (programming language)";
+        GOLANG_ARTICLE_TITLE = "id:Go (programming language)";
         TITLE_PYTHON = "id:Python (programming language)";
         ADD_TO_LIST_BUTTON = "id:Save for later";
         CLOSE_ARTICLE_BUTTON = "id:Back";

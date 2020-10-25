@@ -2,7 +2,7 @@ package wiki_tests.lib.ui;
 
 import io.appium.java_client.AppiumDriver;
 
-public class WelcomeWikiPageObject extends MainWikiPageObject{
+public class WelcomeWikiPageObject extends MainWikiPageObject {
 
     private static final String
             STEP_LEARN_MORE_LINK = "name:Learn more about Wikipedia",

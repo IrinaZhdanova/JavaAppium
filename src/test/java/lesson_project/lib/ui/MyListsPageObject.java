@@ -1,5 +1,5 @@
 package lesson_project.lib.ui;
-import io.appium.java_client.AppiumDriver;
+
 import lesson_project.lib.Platform;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -50,7 +50,7 @@ abstract public class MyListsPageObject extends MainPageObject {
     }
 
     public void swipeByArticleToDelete(String article_title) {
-        if(Platform.getInstance().isAndroid()) {
+        if (Platform.getInstance().isAndroid()) {
             this.waitForArticleToAppearByTitle(article_title);
         }
 
@@ -67,7 +67,7 @@ abstract public class MyListsPageObject extends MainPageObject {
         }
 
 
-        if(Platform.getInstance().isIOS()){
+        if (Platform.getInstance().isIOS()) {
             this.clickElementToTheRightUpperCorner(
                     article_xpath,
                     "Cannot find saved article - 2");

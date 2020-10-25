@@ -14,10 +14,10 @@ public class IOSWikiSearchPageObject extends SearchWikiPageObject {
         JAVA_SEARCH_LINE = "xpath://XCUIElementTypeStaticText[contains(@name, Java)]";
         SEARCH_RESULT_ELEMENT = "xpath:/XCUIElementTypeCollectionView";
         SEARCH_EMPTY_RESULT_ELEMENT = "xpath://XCUIElementTypeStaticText[@name=No results found]";
+        SEARCH_RESULT_TITLE_AND_DESCRIPTION_TPL = "xpath://XCUIElementTypeStaticText[contains(@name,'Java')][contains(@name,'language')]";
     }
 
-    public IOSWikiSearchPageObject(RemoteWebDriver driver){
-
+    public IOSWikiSearchPageObject(RemoteWebDriver driver) {
         super(driver);
     }
 }

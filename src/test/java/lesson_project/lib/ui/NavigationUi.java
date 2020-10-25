@@ -1,10 +1,9 @@
 package lesson_project.lib.ui;
 
-import io.appium.java_client.AppiumDriver;
 import lesson_project.lib.Platform;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-abstract public class NavigationUi extends MainPageObject{
+abstract public class NavigationUi extends MainPageObject {
 
     protected static String
             MY_LISTS_LINK,
@@ -30,7 +29,7 @@ abstract public class NavigationUi extends MainPageObject{
         }
     }
 
-    public void clickMyLists () {
+    public void clickMyLists() {
         if (Platform.getInstance().isMw()) {
             this.tryClickElementWithFewAttempts(
                     MY_LISTS_LINK,

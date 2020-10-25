@@ -13,8 +13,9 @@ public class MyListsTests extends CoreTestCase {
 
     private static final String name_of_folder = "Learning programming";
     private static final String
-                login = "AppiumJavaTest",
-                password = "Qwerty666";
+            login = "AppiumJavaTest",
+            password = "Qwerty666";
+
     @Test
     public void testSaveFirstArticleToMyList() throws InterruptedException {
 
@@ -27,13 +28,13 @@ public class MyListsTests extends CoreTestCase {
         ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
         ArticlePageObject.waitForTitleElement();
         String article_title = ArticlePageObject.getArticleTitle();
-        if(Platform.getInstance().isAndroid()) {
+        if (Platform.getInstance().isAndroid()) {
             ArticlePageObject.getArticleToMyList(name_of_folder);
         } else {
             ArticlePageObject.addArticlesToMySaved();
         }
 
-        if(Platform.getInstance().isMw()) {
+        if (Platform.getInstance().isMw()) {
             AuthorizationPageObject Auth = new AuthorizationPageObject(driver);
             Auth.clickAuthButton();
             Auth.enterLoginData(login, password);
@@ -48,7 +49,7 @@ public class MyListsTests extends CoreTestCase {
         }
 
         ArticlePageObject.closeArticle();
-        if(Platform.getInstance().isIOS()) {
+        if (Platform.getInstance().isIOS()) {
             ArticlePageObject.pressCancelButtonIOS();
         }
 
@@ -57,9 +58,9 @@ public class MyListsTests extends CoreTestCase {
         NavigationUi.clickMyLists();
 
         MyListsPageObject MyListsPageObject = MyListsPageObjectFactory.get(driver);
-        if(Platform.getInstance().isIOS()){
+        if (Platform.getInstance().isIOS()) {
             MyListsPageObject.closeSyncSavedArticlesPopup();
-        } else if(Platform.getInstance().isAndroid()){
+        } else if (Platform.getInstance().isAndroid()) {
             MyListsPageObject.openFolderByName(name_of_folder);
         }
 

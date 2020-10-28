@@ -1,6 +1,5 @@
 package wiki_tests.lib.ui;
 
-import lesson_project.lib.Platform;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import wiki_tests.lib.PlatformWiki;
 
@@ -76,7 +75,7 @@ public class MyWikiListsPageObject extends MainWikiPageObject {
 
         String article_xpath = this.getSaveArticleXpathByTitle(article_title);
 
-        if (Platform.getInstance().isIOS() || Platform.getInstance().isAndroid()) {
+        if (PlatformWiki.getInstance().isIOS() || PlatformWiki.getInstance().isAndroid()) {
             this.swipeElementToLeft((article_xpath),
                     "Cannot find saved article");
         } else {

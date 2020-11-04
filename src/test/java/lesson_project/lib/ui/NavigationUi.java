@@ -10,12 +10,10 @@ abstract public class NavigationUi extends MainPageObject {
             OPEN_NAVIGATION;
 
     public NavigationUi(RemoteWebDriver driver) {
-
         super(driver);
     }
 
     public void openNavigation() throws InterruptedException {
-
         if (Platform.getInstance().isMw()) {
             this.waitForElementClickable(OPEN_NAVIGATION,
                     "Cannot find and click open navigation button",

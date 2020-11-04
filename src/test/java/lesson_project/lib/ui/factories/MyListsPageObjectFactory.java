@@ -11,7 +11,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class MyListsPageObjectFactory {
 
     public static MyListsPageObject get(RemoteWebDriver driver) {
-
         if (Platform.getInstance().isAndroid()) {
             return new AndroidMyListsPageObject(driver);
         } else if (Platform.getInstance().isIOS()) {

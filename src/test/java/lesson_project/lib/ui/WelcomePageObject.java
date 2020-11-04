@@ -14,7 +14,6 @@ public class WelcomePageObject extends MainPageObject {
             SKIP_BUTTON = "id:Skip";
 
     public WelcomePageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 

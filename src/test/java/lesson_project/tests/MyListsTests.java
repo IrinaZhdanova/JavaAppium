@@ -18,7 +18,6 @@ public class MyListsTests extends CoreTestCase {
 
     @Test
     public void testSaveFirstArticleToMyList() throws InterruptedException {
-
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
 
         SearchPageObject.initSearchInput();

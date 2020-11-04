@@ -13,7 +13,6 @@ abstract public class SearchPageObject extends MainPageObject {
             SEARCH_EMPTY_RESULT_ELEMENT;
 
     public SearchPageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 
@@ -87,5 +86,4 @@ abstract public class SearchPageObject extends MainPageObject {
         this.assertElementNotPresent(SEARCH_RESULT_ELEMENT,
                 "We supposed not to find any results");
     }
-
 }

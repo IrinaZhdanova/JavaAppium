@@ -20,7 +20,6 @@ abstract public class ArticlePageObject extends MainPageObject {
 
 
     public ArticlePageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 
@@ -96,7 +95,6 @@ abstract public class ArticlePageObject extends MainPageObject {
     }
 
     public void addArticlesToMySaved() {
-
         if (Platform.getInstance().isMw()) {
             this.removeArticleFromSavedIfItAdded();
         }
@@ -111,7 +109,6 @@ abstract public class ArticlePageObject extends MainPageObject {
     }
 
     public void removeArticleFromSavedIfItAdded() {
-
         if (this.isElementPresent(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON)) {
             this.waitForElementAndClick(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON,
                     "Cannot click button to remove an article from saved",

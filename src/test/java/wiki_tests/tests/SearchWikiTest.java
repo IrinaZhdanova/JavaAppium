@@ -13,7 +13,6 @@ public class SearchWikiTest extends CoreWikiTestCase {
 
     @Test
     public void testFindSearchString() {
-
         SearchWikiPageObject SearchWikiPageObject = SearchWikiPageObjectFactory.get(driver);
         SearchWikiPageObject.initSearchInput();
 
@@ -24,7 +23,7 @@ public class SearchWikiTest extends CoreWikiTestCase {
             assertEquals("Cannot find 'Search...' string in wiki app",
                     "Search…",
                     string_title);
-        } else if (PlatformWiki.getInstance().isIOS()){
+        } else if (PlatformWiki.getInstance().isIOS()) {
             assertEquals("Cannot find 'Search...' string in wiki app",
                     "Search Wikipedia",
                     string_title);
@@ -37,7 +36,6 @@ public class SearchWikiTest extends CoreWikiTestCase {
 
     @Test
     public void testPerformSearchAndRemoveSymbolsAfterSearch() throws InterruptedException {
-
         SearchWikiPageObject SearchWikiPageObject = SearchWikiPageObjectFactory.get(driver);
         SearchWikiPageObject.initSearchInput();
         SearchWikiPageObject.typeSearchLine("Python");
@@ -48,7 +46,6 @@ public class SearchWikiTest extends CoreWikiTestCase {
 
     @Test
     public void testCheckJavaSearchResults() throws InterruptedException {
-
         SearchWikiPageObject SearchWikiPageObject = SearchWikiPageObjectFactory.get(driver);
         SearchWikiPageObject.initSearchInput();
         SearchWikiPageObject.typeSearchLine("Java");
@@ -59,7 +56,6 @@ public class SearchWikiTest extends CoreWikiTestCase {
 
     @Test
     public void testCheckJavaSearchResultsTest() throws InterruptedException {
-
         SearchWikiPageObject SearchWikiPageObject = SearchWikiPageObjectFactory.get(driver);
         SearchWikiPageObject.initSearchInput();
         SearchWikiPageObject.typeSearchLine("Java");

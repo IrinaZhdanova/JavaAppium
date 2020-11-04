@@ -17,7 +17,6 @@ public class CoreTestCase extends TestCase {
 
     @Override
     protected void setUp() throws Exception {
-
         super.setUp();
         driver = Platform.getInstance().getDriver();
         this.rotateScreenPortrait();
@@ -27,13 +26,11 @@ public class CoreTestCase extends TestCase {
 
     @Override
     protected void tearDown() throws Exception {
-
         driver.quit();
         super.tearDown();
     }
 
     protected void rotateScreenPortrait() {
-
         if (driver instanceof AppiumDriver) {
             AppiumDriver driver = (AppiumDriver) this.driver;
             driver.rotate(ScreenOrientation.PORTRAIT);
@@ -44,7 +41,6 @@ public class CoreTestCase extends TestCase {
     }
 
     protected void rotateScreenLandscape() {
-
         if (driver instanceof AppiumDriver) {
             AppiumDriver driver = (AppiumDriver) this.driver;
             driver.rotate(ScreenOrientation.LANDSCAPE);
@@ -55,7 +51,6 @@ public class CoreTestCase extends TestCase {
     }
 
     protected void backgroundApp(int seconds) {
-
         if (driver instanceof AppiumDriver) {
             AppiumDriver driver = (AppiumDriver) this.driver;
             driver.runAppInBackground(Duration.ofSeconds(seconds));
@@ -66,7 +61,6 @@ public class CoreTestCase extends TestCase {
     }
 
     protected void openWikiWebPageForMobileWeb() {
-
         if (Platform.getInstance().isMw()) {
             driver.get("https://en.m.wikipedia.org");
             driver.manage().deleteAllCookies();
@@ -77,12 +71,10 @@ public class CoreTestCase extends TestCase {
     }
 
     private void skipWelcomePageForIOSApp() {
-
         if (Platform.getInstance().isIOS()) {
             AppiumDriver driver = (AppiumDriver) this.driver;
             WelcomePageObject WelcomePageObject = new WelcomePageObject(driver);
             WelcomePageObject.clickSkip();
         }
     }
-
 }

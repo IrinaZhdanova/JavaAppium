@@ -12,8 +12,6 @@ public class MWWikiMyListsPageObject extends MyWikiListsPageObject {
 
 
     public MWWikiMyListsPageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
-
 }

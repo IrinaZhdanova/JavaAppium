@@ -23,7 +23,6 @@ public class MainWikiPageObject {
     protected RemoteWebDriver driver;
 
     public MainWikiPageObject(RemoteWebDriver driver) {
-
         this.driver = driver;
     }
 
@@ -83,7 +82,6 @@ public class MainWikiPageObject {
     }
 
     public void clickElementToTheRightUpperCorner(String locator, String error_message) {
-
         if (driver instanceof AppiumDriver) {
             WebElement element = this.waitForElementPresent(locator + "/..", error_message);
             int right_x = element.getLocation().getX();
@@ -104,7 +102,6 @@ public class MainWikiPageObject {
     }
 
     public void swipeUp(int timeOfSwipe) {
-
         if (driver instanceof AppiumDriver) {
             TouchAction action = new TouchAction((AppiumDriver) driver);
             Dimension size = driver.manage().window().getSize();
@@ -124,12 +121,10 @@ public class MainWikiPageObject {
     }
 
     public void swipeUpQuick() {
-
         swipeUp(200);
     }
 
     public void scrollWebPageUp() {
-
         if (PlatformWiki.getInstance().isMw()) {
             JavascriptExecutor JSExecutor = (JavascriptExecutor) driver;
             JSExecutor.executeScript("window.scrollBy(0, 250)");
@@ -159,7 +154,8 @@ public class MainWikiPageObject {
         while (driver.findElements(by).size() == 0) {
 
             if (already_swiped > max_swipes) {
-                waitForElementPresent(locator, "Cannot find element by swiping up. " + error_message,
+                waitForElementPresent(locator, "Cannot find element by swiping up. " +
+                                error_message,
                         0);
                 return;
             }
@@ -186,7 +182,6 @@ public class MainWikiPageObject {
 
 
     public void swipeElementToLeft(String locator, String error_message) {
-
         if (driver instanceof AppiumDriver) {
             WebElement element = waitForElementPresent(
                     locator,
@@ -224,7 +219,6 @@ public class MainWikiPageObject {
     }
 
     public boolean isElementPresent(String locator) {
-
         return getAmountOfElements(locator) > 0;
     }
 

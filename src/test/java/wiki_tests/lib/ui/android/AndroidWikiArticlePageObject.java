@@ -22,8 +22,7 @@ public class AndroidWikiArticlePageObject extends ArticleWikiPageObject {
         CLOSE_ARTICLE_BUTTON = "xpath://android.widget.ImageButton[@content-desc='Navigate up']";
     }
 
-    public AndroidWikiArticlePageObject(RemoteWebDriver driver){
-
+    public AndroidWikiArticlePageObject(RemoteWebDriver driver) {
         super(driver);
     }
 }

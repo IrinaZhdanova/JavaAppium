@@ -14,4 +14,5 @@ import wiki_tests.tests.SearchWikiTest;
         SearchWikiTest.class
 })
 
-public class TestWikiSuite { }
+public class TestWikiSuite {
+}

@@ -12,7 +12,6 @@ public class MWWikiNavigationUIPageObject extends NavigationUIWikiPageObject {
     }
 
     public MWWikiNavigationUIPageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 }

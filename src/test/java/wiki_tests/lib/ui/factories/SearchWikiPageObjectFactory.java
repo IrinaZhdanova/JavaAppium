@@ -10,7 +10,6 @@ import wiki_tests.lib.ui.mobile_web.MWWikiSearchPageObject;
 public class SearchWikiPageObjectFactory {
 
     public static SearchWikiPageObject get(RemoteWebDriver driver) {
-
         if (PlatformWiki.getInstance().isAndroid()) {
             return new AndroidWikiSearchPageObject(driver);
         } else if (PlatformWiki.getInstance().isIOS()) {

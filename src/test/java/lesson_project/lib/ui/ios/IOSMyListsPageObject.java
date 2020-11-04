@@ -12,7 +12,6 @@ public class IOSMyListsPageObject extends MyListsPageObject {
     }
 
     public IOSMyListsPageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 }

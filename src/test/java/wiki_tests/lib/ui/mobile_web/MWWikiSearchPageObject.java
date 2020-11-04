@@ -17,7 +17,6 @@ public class MWWikiSearchPageObject extends SearchWikiPageObject {
     }
 
     public MWWikiSearchPageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 }

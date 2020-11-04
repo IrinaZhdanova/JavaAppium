@@ -36,5 +36,4 @@ public class AuthorizationPageObject extends MainPageObject {
                 "Cannot find and click submit auth button",
                 5);
     }
-
 }

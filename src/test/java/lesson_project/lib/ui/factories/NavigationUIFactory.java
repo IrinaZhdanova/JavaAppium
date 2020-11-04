@@ -10,7 +10,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class NavigationUIFactory {
 
     public static NavigationUi get(RemoteWebDriver driver) {
-
         if (Platform.getInstance().isAndroid()) {
             return new AndroidNavigationUI(driver);
         } else if (Platform.getInstance().isIOS()) {

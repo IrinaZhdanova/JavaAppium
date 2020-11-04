@@ -13,7 +13,6 @@ public class IOSWikiMyListsPageObject extends MyWikiListsPageObject {
     }
 
     public IOSWikiMyListsPageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 }

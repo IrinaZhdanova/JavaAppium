@@ -11,7 +11,6 @@ public class MWMyListsPageObject extends MyListsPageObject {
     }
 
     public MWMyListsPageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 }

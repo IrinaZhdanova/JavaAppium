@@ -15,7 +15,6 @@ public class MWSearchPageObject extends SearchPageObject {
     }
 
     public MWSearchPageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 }

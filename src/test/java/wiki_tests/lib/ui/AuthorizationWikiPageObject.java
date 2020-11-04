@@ -23,7 +23,7 @@ public class AuthorizationWikiPageObject extends MainWikiPageObject {
     }
 
     public void enterLoginData(String login, String password) throws InterruptedException {
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
         this.waitForElementAndSendKeys(LOGIN_INPUT, login,
                 "Cannot find and enter a login to the login input",
                 5);

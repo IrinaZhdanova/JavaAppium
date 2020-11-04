@@ -53,7 +53,6 @@ public class Platform {
     }
 
     private DesiredCapabilities getAndroidDesiredCapabilities() {
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("deviceName", "AndroidTestCase");
@@ -66,7 +65,6 @@ public class Platform {
     }
 
     private DesiredCapabilities getIOSDesiredCapabilities() {
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "iOS");
         capabilities.setCapability("deviceName", "iPhone SE (2nd generation)");

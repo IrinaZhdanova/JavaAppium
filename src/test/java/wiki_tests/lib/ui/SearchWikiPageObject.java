@@ -18,7 +18,6 @@ public class SearchWikiPageObject extends MainWikiPageObject {
 
 
     public SearchWikiPageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 

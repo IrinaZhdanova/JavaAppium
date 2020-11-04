@@ -11,7 +11,6 @@ public class MWNavigationUI extends NavigationUi {
     }
 
     public MWNavigationUI(RemoteWebDriver driver) {
-
         super(driver);
     }
 }

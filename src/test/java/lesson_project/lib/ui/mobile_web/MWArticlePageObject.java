@@ -13,7 +13,6 @@ public class MWArticlePageObject extends ArticlePageObject {
     }
 
     public MWArticlePageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 }

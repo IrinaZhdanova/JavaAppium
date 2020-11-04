@@ -28,7 +28,6 @@ public class ArticleWikiPageObject extends MainWikiPageObject {
 
 
     public ArticleWikiPageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 
@@ -188,7 +187,6 @@ public class ArticleWikiPageObject extends MainWikiPageObject {
     }
 
     public void removeArticleFromSavedIfItAdded() {
-
         if (this.isElementPresent(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON)) {
             this.waitForElementAndClick(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON,
                     "Cannot click button to remove an article from saved",

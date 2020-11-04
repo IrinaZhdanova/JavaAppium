@@ -11,7 +11,6 @@ public class NavigationUIWikiPageObject extends MainWikiPageObject {
             SEARCH_ICON;
 
     public NavigationUIWikiPageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 
@@ -30,7 +29,6 @@ public class NavigationUIWikiPageObject extends MainWikiPageObject {
     }
 
     public void openSearchIcon() {
-
         if (PlatformWiki.getInstance().isMw()) {
             this.waitForElementClickable(SEARCH_ICON,
                     "Cannot locate search icon button",

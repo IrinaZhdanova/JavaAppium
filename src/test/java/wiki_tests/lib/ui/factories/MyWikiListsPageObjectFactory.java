@@ -10,7 +10,6 @@ import wiki_tests.lib.ui.mobile_web.MWWikiMyListsPageObject;
 public class MyWikiListsPageObjectFactory {
 
     public static MyWikiListsPageObject get(RemoteWebDriver driver) {
-
         if (PlatformWiki.getInstance().isAndroid()) {
             return new AndroidWikiMyListsPageObject(driver);
         } else if (PlatformWiki.getInstance().isIOS()) {

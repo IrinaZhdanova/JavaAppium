@@ -73,7 +73,6 @@ public class MainPageObject {
     }
 
     public void swipeUp(int timeOfSwipe) {
-
         if (driver instanceof AppiumDriver) {
             TouchAction action = new TouchAction((AppiumDriver) driver);
             Dimension size = driver.manage().window().getSize();
@@ -93,12 +92,10 @@ public class MainPageObject {
     }
 
     public void swipeUpQuick() {
-
         swipeUp(200);
     }
 
     public void scrollWebPageUp() {
-
         if (Platform.getInstance().isMw()) {
             JavascriptExecutor JSExecutor = (JavascriptExecutor) driver;
             JSExecutor.executeScript("window.scrollBy(0, 250)");
@@ -165,7 +162,6 @@ public class MainPageObject {
     }
 
     public void clickElementToTheRightUpperCorner(String locator, String error_message) {
-
         if (driver instanceof AppiumDriver) {
             WebElement element = this.waitForElementPresent(locator + "/..", error_message);
             int right_x = element.getLocation().getX();
@@ -186,7 +182,6 @@ public class MainPageObject {
     }
 
     public void swipeElementToLeft(String locator, String error_message) {
-
         if (driver instanceof AppiumDriver) {
             WebElement element = waitForElementPresent(
                     locator,

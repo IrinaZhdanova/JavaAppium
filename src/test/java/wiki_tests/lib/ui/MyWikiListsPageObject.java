@@ -16,7 +16,6 @@ public class MyWikiListsPageObject extends MainWikiPageObject {
 
 
     public MyWikiListsPageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 

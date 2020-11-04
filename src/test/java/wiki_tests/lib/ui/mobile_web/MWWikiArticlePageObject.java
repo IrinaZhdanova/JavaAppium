@@ -19,7 +19,6 @@ public class MWWikiArticlePageObject extends ArticleWikiPageObject {
     }
 
     public MWWikiArticlePageObject(RemoteWebDriver driver) {
-
         super(driver);
     }
 }

@@ -14,4 +14,5 @@ import org.junit.runners.Suite;
         SearchTests.class
 })
 
-public class TestSuite { }
+public class TestSuite {
+}

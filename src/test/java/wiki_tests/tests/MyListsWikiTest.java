@@ -15,9 +15,9 @@ public class MyListsWikiTest extends CoreWikiTestCase {
     private static final String
             login = "AppiumJavaTest",
             password = "Qwerty666";
+
     @Test
     public void testSaveTwoArticlesAndClearOne() throws InterruptedException {
-
         SearchWikiPageObject SearchWikiPageObject = SearchWikiPageObjectFactory.get(driver);
         SearchWikiPageObject.initSearchInput();
         SearchWikiPageObject.typeSearchLine("Python");
@@ -26,13 +26,13 @@ public class MyListsWikiTest extends CoreWikiTestCase {
         ArticleWikiPageObject.waitForShortPythonDescriptionAndClick();
         ArticleWikiPageObject.getArticleCard();
 
-        if(PlatformWiki.getInstance().isAndroid()) {
+        if (PlatformWiki.getInstance().isAndroid()) {
             ArticleWikiPageObject.getArticleToMyList(name_of_folder);
         } else {
             ArticleWikiPageObject.addArticlesToMySaved();
         }
 
-        if(PlatformWiki.getInstance().isMw()) {
+        if (PlatformWiki.getInstance().isMw()) {
             AuthorizationWikiPageObject Auth = new AuthorizationWikiPageObject(driver);
             Auth.clickAuthButton();
             Auth.enterLoginData(login, password);
@@ -43,7 +43,7 @@ public class MyListsWikiTest extends CoreWikiTestCase {
         }
 
         ArticleWikiPageObject.closeArticle();
-        if(PlatformWiki.getInstance().isIOS()) {
+        if (PlatformWiki.getInstance().isIOS()) {
             ArticleWikiPageObject.pressCancelButtonIOS();
         }
 
@@ -65,11 +65,11 @@ public class MyListsWikiTest extends CoreWikiTestCase {
         }
 
         String article_title = ArticleWikiPageObject.getArticleTitle();
-        if(PlatformWiki.getInstance().isAndroid()) {
+        if (PlatformWiki.getInstance().isAndroid()) {
             ArticleWikiPageObject.getArticleCard();
         }
 
-        if(PlatformWiki.getInstance().isAndroid()) {
+        if (PlatformWiki.getInstance().isAndroid()) {
             ArticleWikiPageObject.getWikiArticleTwoSteps();
             ArticleWikiPageObject.getSecondWikiArticleToMyList();
         } else {
@@ -77,16 +77,16 @@ public class MyListsWikiTest extends CoreWikiTestCase {
         }
 
         ArticleWikiPageObject.closeArticle();
-        if(PlatformWiki.getInstance().isIOS()) {
+        if (PlatformWiki.getInstance().isIOS()) {
             ArticleWikiPageObject.pressCancelButtonIOS();
         }
         NavigationUIWikiPageObject.openNavigation();
         NavigationUIWikiPageObject.clickMyLists();
 
         MyWikiListsPageObject MyWikiListsPageObject = MyWikiListsPageObjectFactory.get(driver);
-        if(PlatformWiki.getInstance().isIOS()){
+        if (PlatformWiki.getInstance().isIOS()) {
             MyWikiListsPageObject.closeSyncSavedArticlesPopup();
-        } else if(PlatformWiki.getInstance().isAndroid()){
+        } else if (PlatformWiki.getInstance().isAndroid()) {
             MyWikiListsPageObject.getCreatedList();
             MyWikiListsPageObject.openFolderByName(name_of_folder);
         }

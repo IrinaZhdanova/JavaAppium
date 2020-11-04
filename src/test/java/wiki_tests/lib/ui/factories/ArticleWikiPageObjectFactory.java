@@ -10,7 +10,6 @@ import wiki_tests.lib.ui.mobile_web.MWWikiArticlePageObject;
 public class ArticleWikiPageObjectFactory {
 
     public static ArticleWikiPageObject get(RemoteWebDriver driver) {
-
         if (PlatformWiki.getInstance().isAndroid()) {
             return new AndroidWikiArticlePageObject(driver);
         } else if (PlatformWiki.getInstance().isIOS()) {

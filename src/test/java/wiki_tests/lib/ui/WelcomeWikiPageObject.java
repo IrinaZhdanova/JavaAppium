@@ -14,7 +14,6 @@ public class WelcomeWikiPageObject extends MainWikiPageObject {
             SKIP_BUTTON = "id:Skip";
 
     public WelcomeWikiPageObject(AppiumDriver driver) {
-
         super(driver);
     }
 

@@ -11,7 +11,6 @@ import org.junit.Test;
 public class ChangeAppConditionTests extends CoreTestCase {
     @Test
     public void testChangeScreenOrientationOnSearchResults() {
-
         if (Platform.getInstance().isMw()) {
             return;
         }
@@ -30,8 +29,7 @@ public class ChangeAppConditionTests extends CoreTestCase {
 
         assertEquals("Article title has been changed after screen rotation",
                 title_before_rotation,
-                title_after_rotation
-        );
+                title_after_rotation);
 
         this.rotateScreenPortrait();
 
@@ -44,7 +42,6 @@ public class ChangeAppConditionTests extends CoreTestCase {
 
     @Test
     public void testSearchArticleInBackground() {
-
         if (Platform.getInstance().isMw()) {
             return;
         }

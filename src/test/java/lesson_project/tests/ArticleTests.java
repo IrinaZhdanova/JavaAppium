@@ -10,7 +10,6 @@ import org.junit.Test;
 public class ArticleTests extends CoreTestCase {
     @Test
     public void testCompareArticleTitle() {
-
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
 
         SearchPageObject.initSearchInput();
@@ -26,7 +25,6 @@ public class ArticleTests extends CoreTestCase {
 
     @Test
     public void testSwipeArticle() throws Exception {
-
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
 
         SearchPageObject.initSearchInput();

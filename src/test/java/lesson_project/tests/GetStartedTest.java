@@ -9,7 +9,6 @@ public class GetStartedTest extends CoreTestCase {
 
     @Test
     public void testPassTroughWelcome() {
-
         if ((Platform.getInstance().isAndroid()) || (Platform.getInstance().isMw())) {
             return;
         }
